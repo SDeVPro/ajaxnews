@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}User Comments {% endblock %}
+{% block description %} {% endblock %}
+{% block keywords %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block body %}
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">User Comments</li>
+        </ul>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h4 class="title">User Comments</h4>
+                </div>
+                <table class="shopping-cart-table table">
+                    <tr>
+                        <th class="text-left">News</th>
+                        <th class="text-left">Rate</th>
+                        <th class="text-left">Subject</th>
+                        <th class="text-left">Comment</th>
+                        <th class="text-left">Status</th>
+                        <th class="text-left">Date</th>
+                        <th class="text-left">Detail</th>
+                    </tr>
+                    {% for rs in comments %}
+                        <tr>
+                            <td class="text-left">
+                                <a href="/news/{{rs.news.id}}/{{rs.news.slug}}">
+                                    <strong>{{rs.news.title}}</strong>
+                                </a>
+
+                            </td>
+                            <td class="text-left">{{rs.rate}}</td>
+                            <td class="text-left">{{rs.subject}}</td>
+                            <td class="text-left">{{rs.comment}}</td>
+                            <td class="text-left">{{rs.status}}</td>
+                            <td class="text-left">{{rs.create_at}}</td>
+                            <td class="text-left">
+                                <a class="primary-btn" href="/comment/deletecomment/{{rs.id}}" onclick="return confirm('Will be Delete! Are you sure?')">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block foot %}{% include 'footer.html'%}{% endblock %}

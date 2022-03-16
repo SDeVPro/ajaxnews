@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}{{category.title}} News {% endblock %}
+{% block description %}{{category.description}} {% endblock %}
+{% block keywords %}{{category.keywords}}{% endblock %}
+
+{% block sidebar %} {% include 'sidebar.html'%}{% endblock %}
+{% block body %}
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">{{category.title}}</li>
+            
+
+        </ul>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div id="main" class="col-md-9">
+                <div id="store">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="order-summary clearfix">
+                                <div class="section-title">
+                                    <h3 class="title">
+                                        Yangiliklar
+                                    </h3>
+                                </div>
+                                <table class="shopping-cart-table table">
+                                    <thead>
+                                        <tr>
+                                            <th>News</th>
+                                            <th class="text-left">Title</th>
+                                            <th class="text-left">Author</th>
+                                            <th class="text-left">Create at</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        {% for rs in news %}
+                                            <tr>
+                                                <td class="thumb">
+                                                    <a href="/news/{{rs.id}}/{{rs.slug}}">
+                                                        <img src="{{rs.image.url}}" style="height:100px" alt="">
+                                                    </a>
+                                                </td>
+                                                <td class="details">
+                                                    <a href="/news/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a>
+                                                </td>
+                                                <td class="details">
+                                                    <a href="/news/{{rs.id}}/{{rs.slug}}">{{rs.author}}</a>
+                                                </td>
+                                                <td class="details">
+                                                    <a href="/news/{{rs.id}}/{{rs.slug}}">{{rs.create_at}}</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block foot %}{% include 'footer.html'%}{% endblock %}

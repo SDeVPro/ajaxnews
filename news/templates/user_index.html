@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}User Sign Up {% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html'%} {% endblock %}
+{% block body %}
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">User Profile</li>
+        </ul>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="billing-details">
+                    <div class="section-title">
+                        <h3 class="title">User Profile Inf.</h3>
+                    </div>
+
+                </div>
+                <table class="shopping-cart-table table">
+                    <tr>
+                        <th class="text-left">
+                            <a href="/update" class="primary-btn">Update Profile</a>
+                            <a href="/password" class="primary-btn">Change Password</a>
+                        </th>
+                        <td><img src="{{profile.image.url}}" style="height:200px width:120px" alt=""></td>
+                        <tr>
+                            <th class="text-left">
+Name Surname
+                            </th>
+                            <td class="text-left">{{user.first_name}} {{user.last_name}}</td>
+                        
+                        </tr>
+                        <tr>
+                            <th class="text-left">
+Email
+                            </th>
+                            <td class="text-left">{{profile.user.email}}</td>
+                        
+                        </tr>
+                        <tr>
+                            <th class="text-left">
+Phone
+                            </th>
+                            <td class="text-left">{{profile.phone}}</td>
+                        
+                        </tr>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block foot %}{% include 'footer.html'%}{% endblock %}

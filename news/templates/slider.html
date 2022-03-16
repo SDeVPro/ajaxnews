@@ -1,0 +1,27 @@
+<!-- HOME -->
+<div id="home">
+    <!-- container -->
+    <div class="container">
+        <!-- home wrap -->
+        <div class="home-wrap">
+            <!-- home slick -->
+            <div id="home-slick">
+                {% for rs in news_slider %}
+                <!-- banner -->
+                <div class="banner banner-1">
+                    <img src="{{rs.image.url}}" alt="">
+                    <div class="banner-caption">
+                        <h1 class="white-color">{{rs.title}} <span>{{rs.description}}</span></h1>
+                        <button class="primary-btn">Batafsil</button>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- /banner -->
+            </div>
+            <!-- /home slick -->
+        </div>
+        <!-- /home wrap -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /HOME -->

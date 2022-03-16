@@ -43,7 +43,7 @@ def login_form(request):
             request.session['userimage']=userprofile.image.url 
             return HttpResponseRedirect('/')#127.0.0.1:8000/login
         else:#user yo'q bo'lsa
-            messages.warning(reqeust,"Login Error! User Name or Password is incorrect!")
+            messages.warning(request,"Login Error! User Name or Password is incorrect!")
             return HttpResponseRedirect('/login') 
     category = Category.objects.all() 
     context = {'category':category}
